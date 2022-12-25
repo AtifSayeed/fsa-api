@@ -3,7 +3,7 @@ const path = require("path");
 function home(req, res) {
   const filePath = path.resolve(__dirname, "index.html");
   res.status(200);
-  res.send("Hello Express");
+  res.send("Hello Expressoo");
 }
 
 function books(req, res) {
