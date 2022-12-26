@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js pascal casing
+import Name from './Name'
+import Counter from './Counter'
+import ProductList from './product/ProductList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+   return  <div>
+    <ProductList/>
+    <Name value="Mine"/>
+    <Name value="Your"/>
+    <Counter/>
+     <h1>Hello World</h1>
     </div>
-  );
 }
 
 export default App;
