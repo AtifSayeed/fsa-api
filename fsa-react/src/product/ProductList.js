@@ -60,8 +60,8 @@ const ProductList = () => {
   ];
 
   return (
-    <div>
-      <h1>Products</h1>
+    <div  >
+      <h1 className="m-3">Products</h1>
       {data.map((product) => (
         <Product product={product} />
       ))}
