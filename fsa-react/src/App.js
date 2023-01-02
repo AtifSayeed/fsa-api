@@ -1,14 +1,24 @@
 // App.js pascal casing
 import ProductList from './product/ProductList';
+import Home from './Home';
+import Contact from './Contact'
 import Header from './Header';
 import User from './users/User';
+import Footer from './Footer';
+import { BrowserRouter , Routes, Route} from 'react-router-dom' ;
 
 function App(){
    return  <div>
+<BrowserRouter>
  <Header/>
- <ProductList/> 
- <User/>
+<Routes>
+   <Route path="/" element={<Home/>}/>
+   <Route path="/contact" element={<Contact/>}/>
+   <Route path="/product" element={<ProductList/>}/>
+   <Route path="/user" element={<User/>}/>
+</Routes>
+ <Footer/>
+</BrowserRouter>
     </div>
 }
-
 export default App;
