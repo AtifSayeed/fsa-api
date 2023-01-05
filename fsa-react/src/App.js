@@ -12,7 +12,6 @@ function App(){
    return  <div>
 <BrowserRouter>
  <Header/>
- <Login/>
 <Routes>
    <Route path="/" element={<Home/>}/>
    <Route path="/contact" element={<Contact/>}/>
