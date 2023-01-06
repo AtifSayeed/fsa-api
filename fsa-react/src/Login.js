@@ -1,13 +1,17 @@
 import axios from "./utils/axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ShouldRender from "./common/ShouldRender";
 import { useNavigate } from "react-router-dom";
+import AppContext from "./context/AppContext";
 
 const Login = () => {
   const [user, setuser] = useState({
     email: "",
     password: "",
   });
+
+  const userState = useContext(AppContext);
+
   const [hasError, setError] = useState(false);
 
   const navigate = useNavigate();
@@ -19,8 +23,9 @@ const Login = () => {
       console.log(user);
       const res = await axios().post("/api/users/signin", user);
       localStorage.setItem("user", JSON.stringify(res.data));
+      userState.setAuthenticated(true);
       //navigating...
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       setError(err);
     }

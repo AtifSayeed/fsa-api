@@ -7,9 +7,21 @@ import User from './users/User';
 import Footer from './Footer';
 import { BrowserRouter , Routes, Route} from 'react-router-dom' ;
 import Login from './Login';
+import AppContext from './context/AppContext';
+import { useState, useEffect } from 'react'
 
 function App(){
-   return  <div>
+   const [authenticated,setAuthenticated] = useState(false)
+   const userState = {
+      authenticated:authenticated,
+      setAuthenticated:setAuthenticated
+   }
+   useEffect(() => {
+      if (localStorage.getItem('user')) {
+          setAuthenticated(true);
+      }
+  }, []);
+   return  <AppContext.Provider value={ userState }>
 <BrowserRouter>
  <Header/>
 <Routes>
@@ -22,6 +34,6 @@ function App(){
 </Routes>
  <Footer/>
 </BrowserRouter>
-    </div>
+    </AppContext.Provider>
 }
 export default App;
